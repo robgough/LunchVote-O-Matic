@@ -1,12 +1,20 @@
 require 'rubygems' if RUBY_VERSION < "1.9"
 require 'sinatra'
 require 'erb'
-require 'activerecord'
+require 'active_record'
 
-ActiveRecord::Base.establish_connection(
-	:adapter => "sqlite3",
-	:dbfile => "db/test.db"
-)
+environment = ENV['RACK_ENV']
+
+puts "Environment: #{environment}"
+
+dbconfig = YAML.load(File.read('config/database.yml'))
+puts dbconfig[environment]
+ActiveRecord::Base.establish_connection dbconfig[environment]
+
+#ActiveRecord::Base.establish_connection(
+#	:adapter => "sqlite3",
+#	:dbfile => "db/test.db"
+#)
 
 #ActiveRecord::Schema.define do
 # create_table :votes do |table|
