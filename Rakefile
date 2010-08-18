@@ -7,7 +7,7 @@ namespace :db do
 
   task :environment do
    # ActiveRecord::Base.establish_connection :adapter => 'sqlite3', :dbfile =>  'db/test.db'
-    ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'] || YAML::load(File.open('config/database.yml'))['development']) 
+    ActiveRecord::Base.establish_connection(YAML::load(File.open('config/database.yml'))['production']) 
   end
 
   desc "Deploy to Heroku."
