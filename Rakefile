@@ -1,6 +1,6 @@
 namespace :db do
   task :environment do
-    require 'active_record'
+    require 'activerecord'
     ActiveRecord::Base.establish_connection :adapter => 'sqlite3', :dbfile =>  'db/test.db'
   end
 
