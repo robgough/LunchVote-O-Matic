@@ -1,7 +1,7 @@
 require 'rubygems' if RUBY_VERSION < "1.9"
-require 'sinatra/base'
+require 'sinatra'
 require 'erb'
-require 'active_record'
+require 'activerecord'
 
 ActiveRecord::Base.establish_connection(
 	:adapter => "sqlite3",
