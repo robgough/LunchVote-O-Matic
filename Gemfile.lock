@@ -4,9 +4,14 @@ GEM
     activerecord (2.3.8)
       activesupport (= 2.3.8)
     activesupport (2.3.8)
+    ffi (0.6.3)
+      rake (>= 0.8.7)
     rack (1.2.1)
+    rake (0.8.7)
     sinatra (1.0)
       rack (>= 1.0)
+    sqlite3 (0.1.1)
+      ffi (>= 0.6.3)
 
 PLATFORMS
   ruby
@@ -14,3 +19,4 @@ PLATFORMS
 DEPENDENCIES
   activerecord
   sinatra
+  sqlite3
