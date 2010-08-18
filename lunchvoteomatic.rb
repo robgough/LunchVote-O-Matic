@@ -5,28 +5,32 @@ require 'active_record'
 
 environment = ENV['RACK_ENV']
 
-puts "Environment: #{environment}"
+#puts "Environment: #{environment}"
 
 dbconfig = YAML.load(File.read('config/database.yml'))
-puts dbconfig[environment]
+#puts dbconfig[environment]
 ActiveRecord::Base.establish_connection dbconfig[environment]
 
-#ActiveRecord::Base.establish_connection(
-#	:adapter => "sqlite3",
-#	:dbfile => "db/test.db"
-#)
+ActiveRecord::Base.establish_connection(
+	:adapter => "sqlite3",
+	:dbfile => "db/test.db"
+)
 
-#ActiveRecord::Schema.define do
-# create_table :votes do |table|
-#  table.column :name, :string
-# end
-#
-# create_table :questions do |table|
-#  table.column :vote_id, :integer
-#  table.column :text, :string
-#  table.column :count, :integer
-# end
-#end
+begin
+ActiveRecord::Schema.define do
+ create_table :votes do |table|
+  table.column :name, :string
+ end
+
+ create_table :questions do |table|
+  table.column :vote_id, :integer
+  table.column :text, :string
+  table.column :count, :integer
+ end
+end
+rescue ActiveRecord::StatementInvalid
+# do nothing - schema already exists
+end
 
 class Vote < ActiveRecord::Base
  has_many :questions
