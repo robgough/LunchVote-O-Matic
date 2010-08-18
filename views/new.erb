@@ -1,0 +1,8 @@
+<p>Type out some options, and then click "Start Vote"</p>
+<form action="/" method="POST">
+ Name: <input type="text" name="name" /><br /><br />
+ <% @count.times do |i| %>   
+  <input type="text" name="question[<%= i %>]" /><br />
+ <% end %> 
+ <input type="submit" value="Start Vote"/>
+</form>

@@ -1,0 +1,3 @@
+require 'lunchvoteomatic'
+
+LunchVoteOMatic.run!

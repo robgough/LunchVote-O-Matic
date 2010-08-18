@@ -1,0 +1,11 @@
+<h1><%= @vote.name  %></h1>
+
+<% @vote.questions.each do |q| %>
+ <li>
+  <span><%= q.count %></span>
+  <span><%= q.text %></span>
+  <a href="<%= q.vote_address %>">vote</a>
+ </li>
+<% end %>
+
+<p>Total no. of votes: <%= @vote.total_votes  %></p>
