@@ -1,8 +1,8 @@
 development:
   adapter: sqlite3
-  database: db/test.db
+  database: db/development.sqlite3
   
 production:
     adapter: sqlite3
-    database: db/test.db
+    database: db/development.sqlite3
   
