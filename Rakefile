@@ -1,5 +1,4 @@
 
-
 task :environment do
   require 'active_record'
   ActiveRecord::Base.establish_connection(YAML::load(File.open('config/database.yml'))['production']) 
