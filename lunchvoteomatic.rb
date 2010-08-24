@@ -59,11 +59,17 @@ class LunchVoteOMatic < Sinatra::Base
  end
 
  get '/:id' do
-  @vote = Vote.find(params[:id])
-  if @vote.nil?
-   redirect '/'
-  else
-   erb :show
+  begin
+    @vote = Vote.find(params[:id]) 
+  
+    if @vote.nil?
+     redirect '/'
+    else
+     erb :show
+    end
+  
+  rescue
+    redirect '/'
   end
  end
 
