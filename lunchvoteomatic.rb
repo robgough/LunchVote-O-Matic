@@ -11,11 +11,14 @@ dbconfig = YAML.load(File.read('config/database.yml'))
 #puts dbconfig[environment]
 ActiveRecord::Base.establish_connection dbconfig[environment]
 
+=begin
 ActiveRecord::Base.establish_connection(
 	:adapter => "sqlite3",
 	:dbfile => "db/test.db"
 )
+=end
 
+=begin ActiveRecord Schema
 begin
 ActiveRecord::Schema.define do
  create_table :votes do |table|
@@ -31,6 +34,7 @@ end
 rescue ActiveRecord::StatementInvalid
 # do nothing - schema already exists
 end
+=end
 
 class Vote < ActiveRecord::Base
  has_many :questions
