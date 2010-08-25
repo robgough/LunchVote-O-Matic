@@ -2,10 +2,10 @@
 
 <% @vote.questions.each do |q| %>
  <li>
-  <span><%= q.count %></span>
+  <span class="votecount"><%= q.count %></span>
   <span><%= q.text %></span>
-  <a href="<%= q.vote_address %>">vote</a>
+  <a href="<%= q.vote_address %>">+ 1</a>
  </li>
 <% end %>
 
-<p>Total no. of votes: <%= @vote.total_votes  %></p>
+<p class="votecount">Total votes: <%= @vote.total_votes  %></p>

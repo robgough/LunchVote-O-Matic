@@ -1,0 +1,49 @@
+body, html, #content, h1, h2, h3 {
+	background-color: #4A525A;
+	color: white;
+}
+
+#content {
+	width:320px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:10px;
+}
+
+a:link, a:hover, a:active, a:visited {
+	color:#EDB659;
+	text-decoration:none;
+}
+
+li {
+	font-size:large;
+	padding:5px;
+	list-style:none;
+	list-style-position: inside;
+}
+
+ul {
+	display:inline;
+}
+
+.votecount {
+	color: #97D85B;
+}
+
+h1 {
+	color:#C0C0C0;
+}
+
+label {
+	margin-right:10px;
+}
+
+input {
+	padding: 5px;
+	font-size:large;
+	margin:5px;
+	color:black;
+}
+
+input[type="text"], input[type="password"], input.text, input.title, textarea, select {
+background-color: #CBCBCB;

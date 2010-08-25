@@ -33,6 +33,8 @@ class Question < ActiveRecord::Base
 end
 
 class LunchVoteOMatic < Sinatra::Base
+  
+ set :public, File.dirname(__FILE__) + '/public'
 
  get '/favicon.ico' do
  end

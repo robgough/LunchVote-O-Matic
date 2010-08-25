@@ -1,8 +1,11 @@
-<p>Type out some options, and then click "Start Vote"</p>
+<h1>LunchVote-O-Matic</h1>
+<p>Type out some options, and then click "Create Vote".</p>
 <form action="/" method="POST">
- Name: <input type="text" name="name" /><br /><br />
+ <label for="name">Name:</label>
+ <input type="text" name="name" /><br /><br />
  <% @count.times do |i| %>   
+  <label for="question[<%= i %>]">Option:</label>
   <input type="text" name="question[<%= i %>]" /><br />
  <% end %> 
- <input type="submit" value="Start Vote"/>
+ <input type="submit" value="Create Vote"/>
 </form>
