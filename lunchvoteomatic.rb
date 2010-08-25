@@ -63,6 +63,7 @@ class LunchVoteOMatic < Sinatra::Base
     if @vote.nil?
      redirect '/'
     else
+     @vote.questions.sort! {|x,y| x.text <=> y.text }
      erb :show
     end
   
@@ -72,7 +73,7 @@ class LunchVoteOMatic < Sinatra::Base
  end
 
  get '/do_vote/:vote_id/:question_id' do
-  question = Question.find(params[:question_id], :order=>"text DESC")
+  question = Question.find(params[:question_id])
   if question.nil?
    redirect "/#{params[:vote_id]}"
   else
