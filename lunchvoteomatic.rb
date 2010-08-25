@@ -34,7 +34,7 @@ class LunchVoteOMatic < Sinatra::Base
  end
 
  get '/' do
-  @count = 5
+  @count = 10
   erb :new
  end
 
