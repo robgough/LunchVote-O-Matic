@@ -75,6 +75,22 @@ class LunchVoteOMatic < Sinatra::Base
     redirect '/'
   end
  end
+ 
+ get '/:id/result' do
+   begin
+     @vote = Vote.find(params[:id]) 
+
+     if @vote.nil?
+      redirect '/'
+     else
+      @vote.questions.sort! {|x,y| x.text <=> y.text }
+      erb :index
+     end
+
+   rescue
+     redirect '/'
+   end
+  end
 
  get '/do_vote/:vote_id/:question_id' do
   question = Question.find(params[:question_id])
@@ -83,7 +99,7 @@ class LunchVoteOMatic < Sinatra::Base
   else
    question.count = question.count.to_i + 1
    question.save
-   redirect "/#{params[:vote_id]}"
+   redirect "/#{params[:vote_id]}/result"
    #"Votes: #{question.count.to_s}"
   end
  end

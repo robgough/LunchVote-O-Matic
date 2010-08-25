@@ -1,1 +1,10 @@
-This is <%= @foo %>
+<h1><%= @vote.name %></h1>
+
+<% @vote.questions.each do |q| %>
+ <li>
+  <span><%= q.count %></span>
+  <span><%= q.text %></span>
+ </li>
+<% end %>
+
+<p>Total no. of votes: <%= @vote.total_votes  %></p>
