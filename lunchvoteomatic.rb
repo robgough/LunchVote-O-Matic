@@ -72,7 +72,7 @@ class LunchVoteOMatic < Sinatra::Base
  end
 
  get '/do_vote/:vote_id/:question_id' do
-  question = Question.find(params[:question_id])
+  question = Question.find(params[:question_id], :order=>"text DESC")
   if question.nil?
    redirect "/#{params[:vote_id]}"
   else
