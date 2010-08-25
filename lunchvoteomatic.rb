@@ -42,16 +42,14 @@ class LunchVoteOMatic < Sinatra::Base
   @vote = Vote.new
   @vote.name = params[:name]
   if @vote.save
-
    questions = params[:question]
    questions.each do |number, text|
     new_question = Question.new
     new_question.text = text
     new_question.count = 0
     new_question.vote_id = @vote.id
-    new_question.save
+    new_question.save unless text == ""
    end
-
    redirect "/#{@vote.id}"
   else
    redirect '/'
