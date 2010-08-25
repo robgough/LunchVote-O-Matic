@@ -12,7 +12,11 @@ class Vote < ActiveRecord::Base
  has_many :questions
 
  def total_votes
-  "coming soon"
+  total = 0
+  self.questions.each do |q|
+    total += q.count
+  end
+  total
  end
 end
 
